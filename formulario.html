@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    #edad{
+        width: 110px;
+    }
+    </style>
+</head>
+<body>
+        <section>
+                <form name="miformulario" id="miformulario" method="GET" autocomplete="off">
+                    Email: &nbsp;<input type="email" name="email" id="email" required multiple></br></br>
+
+                    Buscar: &nbsp;<input type="search" name="" id="buscar" id="buscar"></br></br>
+
+                    url: &nbsp; <input type="url" name="url" id="url" autofocus></br></br>
+
+                     Edad: &nbsp;<input type="range" name="edad" id="edad" min="5" max="105"></br></br>
+
+                    <input type="datetime" name="fecha" id="fecha"></br></br>
+
+                    c.postal: &nbsp; <input pattern="[0-9]{5}" name="postal" id="cpostal" placeholder="5 digitos"></br></br>
+
+                    <input type="submit" value="Enviar"></br></br>
+                </form>
+            </section>
+</body>
+</html>
