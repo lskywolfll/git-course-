@@ -15,13 +15,34 @@
         {
             var elemento = document.getElementById("lienzo");
             lienzo = elemento.getContext("2d");
+            // lienzo.font = "bold 20px verdana";
+            // lienzo.fillText("Hola amigo", 50, 20);
+            // lienzo.translate(100, 100);
+            // lienzo.scale(3,3); // es como potenciar el valor del eje x o y, Nunca puede ser 0 o sino no lo veremos por ser muy pequeño
+            // //osea la anchura y el alto ^^ y el 1 es el tamaño que tiene osea normal
+            // lienzo.rotate(Math.PI);//vuelta a 180ª al lienzo
+            // lienzo.fillText("Hola amigo", -200, -250);
+
+            // lienzo.transform(3,0,0,1,0,0); //1 valor- ancho 2- rotacion 3- esconde 4- alto 5- eje x 6- eje y
+            // lienzo.font = "bold 20px verdana";
+            // lienzo.fillText("Hola amigo", 50, 50);
+            // //otro texto
+            // lienzo.setTransform(1,0,0,10,0,0); //setTransform resetea el ancho no el alto
+            // lienzo.font = "bold 20px verdana";
+            // lienzo.fillText("Hola amigo", 50, 50);
+
             lienzo.font = "bold 20px verdana";
-            lienzo.fillText("Hola amigo", 50, 20);
-            lienzo.translate(100, 100);
-            lienzo.scale(3,3); // es como potenciar el valor del eje x o y, Nunca puede ser 0 o sino no lo veremos por ser muy pequeño
-            //osea la anchura y el alto ^^ y el 1 es el tamaño que tiene osea normal
-            lienzo.rotate(Math.PI);//vuelta a 180ª al lienzo
-            lienzo.fillText("Hola amigo", -200, -250);
+            lienzo.save();
+            lienzo.fillText("Hola amigos", 50, 50);
+            lienzo.translate(60, 70); //traslado del origen del canvas
+            lienzo.rotate(Math.PI/ 180 * 55); 
+
+            lienzo.fillText("hola amigos", 0, 0);
+            //lienzo.rotate(-Math.PI / 180 * 55);
+            lienzo.restore();
+            lienzo.translate(300, 400);
+            lienzo.scale(2, 2);//doblar el valor de algo con scale
+            lienzo.fillText("hola amigos", 100, 100);
         }
 
     window.addEventListener("load", comenzar, false);
