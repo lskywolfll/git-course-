@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +10,22 @@
         border: 1px red solid;
     }
     </style>
+    <script>
+        function comenzar()
+        {
+            var elemento = document.getElementById("lienzo");
+            lienzo = elemento.getContext("2d");
+            lienzo.font = "bold 20px verdana";
+            lienzo.fillText("Hola amigo", 50, 20);
+            lienzo.translate(100, 100);
+            lienzo.scale(3,3); // es como potenciar el valor del eje x o y, Nunca puede ser 0 o sino no lo veremos por ser muy pequeño
+            //osea la anchura y el alto ^^ y el 1 es el tamaño que tiene osea normal
+            lienzo.rotate(Math.PI);//vuelta a 180ª al lienzo
+            lienzo.fillText("Hola amigo", -200, -250);
+        }
+
+    window.addEventListener("load", comenzar, false);
+    </script>
 </head>
 <body>
     <section id="dibujo">
