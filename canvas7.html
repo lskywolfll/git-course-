@@ -15,15 +15,19 @@
         {
             var elemento = document.getElementById("lienzo");
             lienzo = elemento.getContext("2d");
+            var imagen = new Image();
+            // lienzo.fillStyle = "#880000";
+            // lienzo.fillRect(400,250,300,100);
+            // lienzo.globalCompositeOperation = "source-out";
+            // lienzo.fillStyle = "#FF0000";
+            // lienzo.font = "bold 49px verdana";
+            // lienzo.textAlign = "center";
+            // lienzo.textBaseline = "middle";
+            // lienzo.fillText("hola amigos", 550, 300);
 
-            lienzo.fillStyle = "#880000";
-            lienzo.fillRect(400,250,300,100);
-            lienzo.globalCompositeOperation = "destination-atop";
-            lienzo.fillStyle = "#FF0000";
-            lienzo.font = "bold 49px verdana";
-            lienzo.textAlign = "center";
-            lienzo.textBaseline = "middle";
-            lienzo.fillText("hola amigos", 550, 300);
+            imagen.src = "http://www.pildorasinformaticas.com/archivos/logos/html5online.jpg";
+            imagen.addEventListener("load", function(){lienzo.drawImage(imagen,50,10,75,75,0,0,300,300)}, false);
+            
 
         }
 
