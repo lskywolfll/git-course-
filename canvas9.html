@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Canvas 8</title>
+    <style>
+    #lienzo
+    {
+        border: 1px red solid;
+    }
+    </style>
+    <script>
+    var y = 300;
+    var estado = "bajando";
+    function comenzar()
+    {
+        var elemento = document.getElementById("lienzo");
+        lienzo = elemento.getContext("2d");
+        setInterval(animacion, 50);
+    }
+    
+    function animacion()
+    {
+        if(y < 850 && estado == "bajando")
+        {
+        lienzo.clearRect(0,0,1200,900);
+        lienzo.beginPath();
+        lienzo.arc(500, y, 40, 0, Math.PI * 2, false);
+        lienzo.fill();
+        y+=50;
+        }
+        if(y == 850)
+        {
+            estado = "subiendo";
+            console.log(estado);
+        }
+        if(y >= 300 && estado == "subiendo")
+        {
+        lienzo.clearRect(0,0,1200,900);
+        lienzo.beginPath();
+        lienzo.arc(500, y, 40, 0, Math.PI * 2, false);
+        lienzo.fill();
+        y-=50;
+        }
+        if(y == 300)
+        {
+            estado = "bajando";
+            console.log(estado);
+        }
+    }
+
+    window.addEventListener("load", comenzar, false);
+    </script>
+</head>
+<body>
+    <section id="dibujo">
+        <canvas id="lienzo" width="960" height="1200"></canvas>
+    </section>
+</body>
+</html>
