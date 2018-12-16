@@ -12,31 +12,31 @@
     }
     </style>
     <script>
-    var y = 300;
+    var y = 300; //Posicion en el eje y
     var estado = "bajando";
     function comenzar()
     {
         var elemento = document.getElementById("lienzo");
         lienzo = elemento.getContext("2d");
-        setInterval(animacion, 50);
+        setInterval(animacion, 50); //LLamada a una funcion y al intervalo de tiempo 1000 = 1 segundo
     }
     
     function animacion()
     {
         if(y < 850 && estado == "bajando")
         {
-        lienzo.clearRect(0,0,1200,900);
-        lienzo.beginPath();
-        lienzo.arc(500, y, 40, 0, Math.PI * 2, false);
-        lienzo.fill();
-        y+=50;
+        lienzo.clearRect(0,0,1200,900); //Limpia todo lo hecho anteriormente segun el rango dado en los ejes
+        lienzo.beginPath(); //invocacion del camino para dibujar
+        lienzo.arc(500, y, 40, 0, Math.PI * 2, false); //posicion del lapiz y donde pintar e rango 
+        lienzo.fill(); //Relleno o usar stroke para que salga solo las lineas sin relleno
+        y+=50; //sumar cada vez en 50 el eje y
         }
-        if(y == 850)
+        if(y == 850) //Cuando llegue a 850 ejecute lo siguiente
         {
-            estado = "subiendo";
+            estado = "subiendo"; 
             console.log(estado);
         }
-        if(y >= 300 && estado == "subiendo")
+        if(y >= 300 && estado == "subiendo") //2 condicionales para ejecutar lo siguiente
         {
         lienzo.clearRect(0,0,1200,900);
         lienzo.beginPath();
@@ -51,7 +51,7 @@
         }
     }
 
-    window.addEventListener("load", comenzar, false);
+    window.addEventListener("load", comenzar, false); //escuchador de evento => cargar + funcion + booleano
     </script>
 </head>
 <body>

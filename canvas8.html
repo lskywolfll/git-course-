@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Imagenes como datos</title>
+    <style>
+    #lienzo{
+        border: 1px red solid;
+    }
+    </style>
+    <script>
+        function comenzar()
+        {
+            var elemento = document.getElementById("lienzo");
+            lienzo = elemento.getContext("2d");
+            var imagen = new Image();
+
+            imagen.src = "imagen.jpg";
+            imagen.addEventListener("load", manipularimagen, false);
+        }
+
+        function manipularimagen(e)
+        {
+          imagen = e.target;
+          lienzo.drawImage(imagen,0,0);
+          var info_imagen = lienzo.getImageData(0,0,145,145); //guarda los datos de la imagen segun hasta donde le indiquemos
+          var posicion; //para el ordenamiento del objeto de la imagen osea su array
+
+          for(x = 0; x <= 145; x++) //recorrido
+          {
+            for(y = 0; y <= 145; y++) //recorrido
+            {
+                posicion = (info_imagen.width * 4 * y) + (x * 4); //posicion de cada pixen a sacar para poder aplicar el rgba por el ancho * 4 que el rgba 
+                //se completa por 4 parametros equivale a 1 pixel * eje y + el eje x * 1 pixel = 4
+
+                info_imagen.data[posicion] = 255 - info_imagen.data[posicion]; //color rojo
+                info_imagen.data[posicion + 1] = 255 - info_imagen.data[posicion + 1]; //color verde
+                info_imagen.data[posicion + 2] = 255 - info_imagen.data[posicion + 2]; // color azul y el alpha es +3 simplemente se llevan por 1
+            }
+          }
+          lienzo.putImageData(info_imagen, 0, 0); //imprime los datos almacenados osea los nuevos para poder mostrarnos los datos del rgba de los pixeles
+        }
+
+    window.addEventListener("load", comenzar, false);
+    </script>
+</head>
+<body>
+    <section id="dibujo">
+        <canvas id="lienzo" width="1200" height="900"></canvas>
+    </section>
+</body>
+</html>
