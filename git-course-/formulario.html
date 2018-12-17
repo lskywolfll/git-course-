@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    #edad{
+        width: 110px;
+    }
+
+    #boton{
+        border: 1px royalblue solid;
+        background-color: greenyellow;
+    }
+
+    #cpostal{
+        border: 1px cyan solid;
+        background-color: bisque;
+    }
+
+    #fecha{
+        background-color: rgba(49, 156, 170, 0.5);
+    }
+
+    #url{
+        background-color: rgba(17, 218, 27, 0.705);
+    }
+
+    #buscar{
+        background-color: rgb(245, 202, 12);
+    }
+
+    #email{
+        background-color: rgba(0, 213, 228, 0.5);
+    }
+    </style>
+</head>
+<body>
+        <section>
+                <form name="miformulario" id="miformulario" method="GET" autocomplete="off">
+                    <!-- &nbsp; es como un salto de linea entre el texto a dar o la caja (tamaño de su cuadrado) -->
+                    Email: &nbsp;<input type="email" name="email" id="email" required multiple placeholder="ej: nombre@gmail.com"></br></br>
+
+                    Buscar: &nbsp;<input type="search" name="" id="buscar" id="buscar"></br></br>
+
+                    url: &nbsp; <input type="url" name="url" id="url" autofocus placeholder="www.tudominio.tuprefijo"></br></br>
+
+                     Edad: &nbsp;<input type="range" name="edad" id="edad" min="5" max="105"></br></br>
+
+                    Fecha: <input type="datetime" name="fecha" id="fecha" placeholder="ej: 10/12/2018"></br></br>
+                    <!-- pattern => en el [] se aplica el maximo de digitos escritos en el, {}  el valor valido son 5 digitos -->
+                    c.postal: &nbsp; <input pattern="[0-9]{5}" name="postal" id="cpostal" placeholder="5 digitos"></br></br>
+
+                    <input type="submit" value="Enviar" id="boton"></br></br>
+                </form>
+            </section>
+</body>
+</html>
